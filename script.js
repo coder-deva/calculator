@@ -39,8 +39,7 @@ function valueOnScreen(e) {
   if (firstNumberCount > 11) return;
   if (e.target) {
     firstNumber += e.target.getAttribute("data-value");
-    display.textContent = firstNumber;
-    return;
+   return display.textContent = firstNumber;
   }
   firstNumber += e.getAttribute("data-value");
   display.textContent = firstNumber;
@@ -110,53 +109,23 @@ function dotFunction() {
 let dotButton = document.querySelector(`button[data-value="."]`);
 dotButton.addEventListener("click", dotFunction);
 
-let plusButton = document.querySelector(`button[data-value="+"]`);
-plusButton.addEventListener("click", operator);
-
-let minusButton = document.querySelector(`button[data-value="-"]`);
-minusButton.addEventListener("click", operator);
-
-let divideButton = document.querySelector(`button[data-value="/"]`);
-divideButton.addEventListener("click", operator);
-
-let multiplyButton = document.querySelector(`button[data-value="*"]`);
-multiplyButton.addEventListener("click", operator);
-
 // equals button
 let equalsButton = document.querySelector(`button[data-value="Enter"]`);
 equalsButton.addEventListener("click", equals);
 
-let one = document.querySelector(`button[data-value="${1}"]`);
-one.addEventListener("click", valueOnScreen);
+// All operator buttons 
+let operatorButtons = document.querySelectorAll(`button[data-type="operator"]`);
+operatorButtons.forEach((operatorButton) => {
+  operatorButton.addEventListener("click", operator);
+});
 
-let two = document.querySelector(`button[data-value="${2}"]`);
-two.addEventListener("click", valueOnScreen);
+// All number buttons
+let numbers = document.querySelectorAll(`button[data-type="number"]`);
+numbers.forEach((number) => {
+  number.addEventListener("click", valueOnScreen);
+});
 
-let three = document.querySelector(`button[data-value="${3}"]`);
-three.addEventListener("click", valueOnScreen);
-
-let four = document.querySelector(`button[data-value="${4}"]`);
-four.addEventListener("click", valueOnScreen);
-
-let five = document.querySelector(`button[data-value="${5}"]`);
-five.addEventListener("click", valueOnScreen);
-
-let six = document.querySelector(`button[data-value="${6}"]`);
-six.addEventListener("click", valueOnScreen);
-
-let seven = document.querySelector(`button[data-value="${7}"]`);
-seven.addEventListener("click", valueOnScreen);
-
-let eight = document.querySelector(`button[data-value="${8}"]`);
-eight.addEventListener("click", valueOnScreen);
-
-let nine = document.querySelector(`button[data-value="${9}"]`);
-nine.addEventListener("click", valueOnScreen);
-
-let zero = document.querySelector(`button[data-value="${0}"]`);
-zero.addEventListener("click", valueOnScreen);
-
-// keyboard eventListeners using e.key
+// keyboard event listeners 
 function keyboardDigits(e) {
   let key = document.querySelector(`button[data-value="${e.key}"]`);
   if (e.key === "/") e.preventDefault();
@@ -168,3 +137,4 @@ function keyboardDigits(e) {
   return valueOnScreen(key);
 }
 window.addEventListener("keydown", keyboardDigits);
+
