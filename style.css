@@ -1,0 +1,90 @@
+body {
+  background-color: #cff5f6;
+  box-sizing: border-box;
+}
+button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 27px;
+}
+
+#container {
+  width: 450px;
+  height: 600px;
+  margin: 0 auto;
+  border: rgb(17, 16, 16) 8px solid;
+  display: grid;
+  position: relative;
+  top: 150px;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media(max-width:500px){
+#container {
+  width: 280px;
+  height: 450px;
+  top: 100px;
+  
+}
+}
+
+#display {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  border: 5px solid #28e02b;
+  background: #000;
+  grid-column: 1/5;
+}
+#display-content {
+  color: #3ee042;
+  font-size: 55px;
+  font-family: monospace;
+}
+button[data-value="0"] {
+  grid-column: 1/3;
+}
+.blue {
+  background-color: #5584e0;
+}
+.blue:hover{
+  background-color: #0a55e9;
+  box-shadow: 0 0 8px rgb(0, 217, 255);
+}
+.pink {
+  background-color: #e0287f;
+}
+.pink:hover{
+    background-color: #992bd8;
+}
+.yellow {
+  background-color: #e0ab34;
+}
+.yellow:hover{
+    background-color: rgb(226, 115, 41);
+}
+.bottom {
+  position: absolute;
+  bottom: 6%;
+  right: 5%;
+  color: #5584e0;
+  font-size: 30px;
+  text-decoration: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bottom:hover {
+  font-size: 32px;
+  color: #2f6be2;
+}
+
+#heading{
+  font-size: 36px;
+  text-decoration: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 200px;
+  margin: 0 auto;
+  position: relative;
+  top: 70px;
+
+}
